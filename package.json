@@ -1,0 +1,25 @@
+{
+  "name": "stealing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hummer91/stealing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hummer91/stealing/issues"
+  },
+  "homepage": "https://github.com/hummer91/stealing#readme",
+  "devDependencies": {
+    "bip39": "^3.0.4",
+    "ethereum-hdwallet": "^0.1.2",
+    "hdkey": "^2.1.0",
+    "web3": "^1.8.1"
+  }
+}
