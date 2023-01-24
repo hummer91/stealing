@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/hummer91/stealing/issues"
   },
-  "homepage": "https://github.com/hummer91/stealing#readme"
+  "homepage": "https://github.com/hummer91/stealing#readme",
+  "devDependencies": {
+    "bip39": "^3.0.4",
+    "ethereum-hdwallet": "^0.1.2",
+    "hdkey": "^2.1.0",
+    "web3": "^1.8.1"
+  }
 }
