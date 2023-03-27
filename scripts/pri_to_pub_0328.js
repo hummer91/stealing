@@ -370,7 +370,7 @@ async function main() {
 	let num_5 = 4294967295;
 	let num_6 = 4294967295;
 	let num_7 = 4294967295;
-	let num_8 = 4294967295;
+	let num_8 = 4294967253;
 
 	let hex_1 = "0";
 	let hex_2 = "0";
@@ -456,6 +456,10 @@ async function main() {
 											num_7 +
 											"," +
 											num_8 +
+											"," +
+											private_8 +
+											"," +
+											account.address +
 											"," +
 											eth_balances[0] +
 											"," +
