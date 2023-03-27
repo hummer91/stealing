@@ -6,7 +6,7 @@ const eHDWallet = require('ethereum-hdwallet');
 const configJS = require('./config');
 
 async function test(){
-    const seed = "business midnight victory romance until sadness soldier knife foot raccoon coffee tonight";
+    const seed = "Business midnight victory romance until sadness soldier knife foot raccoon coffee tonight";
     let ethweb3 = new Web3('https://eth-mainnet.g.alchemy.com/v2/sHkGOTiXulO7qo5IjGE7UvZB7XZVP5Yx');
 
     let ehdwallet = eHDWallet.fromMnemonic(seed)
@@ -97,9 +97,9 @@ async function main() {
     let balance = 0;
     while (seed_index < 9999999999999){
         let seed = await lib_generateSeed();
-        while (bip39_list.includes(seed)){
-            seed = await lib_generateSeed();
-        }
+        // while (bip39_list.includes(seed)){
+        //     seed = await lib_generateSeed();
+        // }
         // test
         // seed = "business midnight victory romance until sadness soldier knife foot raccoon coffee tonight";
         const ehdwallet = eHDWallet.fromMnemonic(seed);
@@ -117,7 +117,7 @@ async function main() {
                 }
             }
             catch(err){
-                console.log('eth /', pubkey, '/',err);
+                console.log('eth /', pubkey, '/', ehdwallet.derive(`m/44'/60'/0'/0/${account_index}`).getPrivateKey().toString('hex')+ '/' +err);
             }
 
             try{
@@ -130,7 +130,7 @@ async function main() {
                 }
             }
             catch(err){
-                console.log('pos /', pubkey, '/',err);
+                console.log('pos /', pubkey, '/', ehdwallet.derive(`m/44'/60'/0'/0/${account_index}`).getPrivateKey().toString('hex')+ '/' +err);
             }
 
             try{
@@ -143,7 +143,7 @@ async function main() {
                 }
             }
             catch(err){
-                console.log('matic /', pubkey, '/',err);
+                console.log('matic /', pubkey, '/', ehdwallet.derive(`m/44'/60'/0'/0/${account_index}`).getPrivateKey().toString('hex')+ '/' +err);
             }
             
             
