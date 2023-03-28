@@ -370,7 +370,7 @@ async function main() {
 	let num_5 = 4294967295;
 	let num_6 = 4294967295;
 	let num_7 = 4294967295;
-	let num_8 = 4294967253;
+	let num_8 = 4294964214;
 
 	let hex_1 = "0";
 	let hex_2 = "0";
