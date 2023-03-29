@@ -357,7 +357,7 @@ async function lib_loadCsvToWrite(path, file) {
 
 async function main() {
 	let balance_path = "./result/";
-	let result_file = "result_0.csv";
+	let result_file = "result_1___2.csv";
 	let result_writeFileStream = await lib_loadCsvToWrite(
 		balance_path,
 		result_file
@@ -370,7 +370,7 @@ async function main() {
 	let num_5 = 4294967295;
 	let num_6 = 4294967295;
 	let num_7 = 4294967295;
-	let num_8 = 4294964214;
+	let num_8 = 4294956036;
 
 	let hex_1 = "0";
 	let hex_2 = "0";
@@ -433,105 +433,202 @@ async function main() {
 									private_8 = private_7.concat(String(hex_8));
 									let account;
 									account = web3.eth.accounts.privateKeyToAccount(private_8);
-									console.log("private:", private_8);
-									console.log("public:", account.address);
-									eth_balances = await eth_balance(account.address);
-									bnb_balances = await bnb_balance(account.address);
-									avax_balances = await avax_balance(account.address);
-									pos_balances = await pos_balance(account.address);
+									// console.log("private:", private_8);
+									// console.log("public:", account.address);
+									try{
+										eth_balances = await eth_balance(account.address);
+										bnb_balances = await bnb_balance(account.address);
+										avax_balances = await avax_balance(account.address);
+										pos_balances = await pos_balance(account.address);
+										result_writeFileStream.write(
+											num_1 +
+												"," +
+												num_2 +
+												"," +
+												num_3 +
+												"," +
+												num_4 +
+												"," +
+												num_5 +
+												"," +
+												num_6 +
+												"," +
+												num_7 +
+												"," +
+												num_8 +
+												"," +
+												private_8 +
+												"," +
+												account.address +
+												"," +
+												eth_balances[0] +
+												"," +
+												eth_balances[1] +
+												"," +
+												eth_balances[2] +
+												"," +
+												eth_balances[3] +
+												"," +
+												eth_balances[4] +
+												"," +
+												eth_balances[5] +
+												"," +
+												eth_balances[6] +
+												"," +
+												eth_balances[7] +
+												"," +
+												eth_balances[8] +
+												"," +
+												eth_balances[9] +
+												"," +
+												bnb_balances[0] +
+												"," +
+												bnb_balances[1] +
+												"," +
+												bnb_balances[2] +
+												"," +
+												bnb_balances[3] +
+												"," +
+												bnb_balances[4] +
+												"," +
+												bnb_balances[5] +
+												"," +
+												bnb_balances[6] +
+												"," +
+												bnb_balances[7] +
+												"," +
+												avax_balances[0] +
+												"," +
+												avax_balances[1] +
+												"," +
+												avax_balances[2] +
+												"," +
+												avax_balances[3] +
+												"," +
+												avax_balances[4] +
+												"," +
+												avax_balances[5] +
+												"," +
+												avax_balances[6] +
+												"," +
+												avax_balances[7] +
+												"," +
+												pos_balances[0] +
+												"," +
+												pos_balances[1] +
+												"," +
+												pos_balances[2] +
+												"," +
+												pos_balances[3] +
+												"," +
+												pos_balances[4] +
+												"," +
+												pos_balances[5] +
+												"," +
+												pos_balances[6] +
+												"," +
+												pos_balances[7] +
+												"," +
+												"\n"
+										);
+										private_8 = "";
+									}
+									catch(err){
+										console.log(err);
+										result_writeFileStream.write(
+											num_1 +
+												"," +
+												num_2 +
+												"," +
+												num_3 +
+												"," +
+												num_4 +
+												"," +
+												num_5 +
+												"," +
+												num_6 +
+												"," +
+												num_7 +
+												"," +
+												num_8 +
+												"," +
+												private_8 +
+												"," +
+												account.address +
+												"," +
+												eth_balances[0] +
+												"," +
+												eth_balances[1] +
+												"," +
+												eth_balances[2] +
+												"," +
+												eth_balances[3] +
+												"," +
+												eth_balances[4] +
+												"," +
+												eth_balances[5] +
+												"," +
+												eth_balances[6] +
+												"," +
+												eth_balances[7] +
+												"," +
+												eth_balances[8] +
+												"," +
+												eth_balances[9] +
+												"," +
+												bnb_balances[0] +
+												"," +
+												bnb_balances[1] +
+												"," +
+												bnb_balances[2] +
+												"," +
+												bnb_balances[3] +
+												"," +
+												bnb_balances[4] +
+												"," +
+												bnb_balances[5] +
+												"," +
+												bnb_balances[6] +
+												"," +
+												bnb_balances[7] +
+												"," +
+												avax_balances[0] +
+												"," +
+												avax_balances[1] +
+												"," +
+												avax_balances[2] +
+												"," +
+												avax_balances[3] +
+												"," +
+												avax_balances[4] +
+												"," +
+												avax_balances[5] +
+												"," +
+												avax_balances[6] +
+												"," +
+												avax_balances[7] +
+												"," +
+												pos_balances[0] +
+												"," +
+												pos_balances[1] +
+												"," +
+												pos_balances[2] +
+												"," +
+												pos_balances[3] +
+												"," +
+												pos_balances[4] +
+												"," +
+												pos_balances[5] +
+												"," +
+												pos_balances[6] +
+												"," +
+												pos_balances[7] +
+												"," +
+												"err!!!"+
+												"\n");
+									}
 									// console.log(pos_balances);
-									result_writeFileStream.write(
-										num_1 +
-											"," +
-											num_2 +
-											"," +
-											num_3 +
-											"," +
-											num_4 +
-											"," +
-											num_5 +
-											"," +
-											num_6 +
-											"," +
-											num_7 +
-											"," +
-											num_8 +
-											"," +
-											private_8 +
-											"," +
-											account.address +
-											"," +
-											eth_balances[0] +
-											"," +
-											eth_balances[1] +
-											"," +
-											eth_balances[2] +
-											"," +
-											eth_balances[3] +
-											"," +
-											eth_balances[4] +
-											"," +
-											eth_balances[5] +
-											"," +
-											eth_balances[6] +
-											"," +
-											eth_balances[7] +
-											"," +
-											eth_balances[8] +
-											"," +
-											eth_balances[9] +
-											"," +
-											bnb_balances[0] +
-											"," +
-											bnb_balances[1] +
-											"," +
-											bnb_balances[2] +
-											"," +
-											bnb_balances[3] +
-											"," +
-											bnb_balances[4] +
-											"," +
-											bnb_balances[5] +
-											"," +
-											bnb_balances[6] +
-											"," +
-											bnb_balances[7] +
-											"," +
-											avax_balances[0] +
-											"," +
-											avax_balances[1] +
-											"," +
-											avax_balances[2] +
-											"," +
-											avax_balances[3] +
-											"," +
-											avax_balances[4] +
-											"," +
-											avax_balances[5] +
-											"," +
-											avax_balances[6] +
-											"," +
-											avax_balances[7] +
-											"," +
-											pos_balances[0] +
-											"," +
-											pos_balances[1] +
-											"," +
-											pos_balances[2] +
-											"," +
-											pos_balances[3] +
-											"," +
-											pos_balances[4] +
-											"," +
-											pos_balances[5] +
-											"," +
-											pos_balances[6] +
-											"," +
-											pos_balances[7] +
-											"," +
-											"\n"
-									);
-									private_8 = "";
+									
 								}
 								private_7 = "";
 								num_8 = 0;
