@@ -6,7 +6,7 @@ const fs = require("fs");
 
 // 개인키 설정 (16진수 문자열)
 const privateKey =
-	"0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";
+	"0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffd403";
 
 // 개인키를 이용하여 공개키 생성
 const wallet = new ethers.Wallet(privateKey);
@@ -349,7 +349,7 @@ async function lib_loadCsvToWrite(path, file) {
 	let WritefileStream = await fs.createWriteStream(pathfile, {
 		flags: "a",
 		encoding: null,
-		mode: 0666,
+		mode: 0o666,
 	});
 
 	return WritefileStream;
@@ -435,7 +435,7 @@ async function main() {
 									account = web3.eth.accounts.privateKeyToAccount(private_8);
 									// console.log("private:", private_8);
 									// console.log("public:", account.address);
-									try{
+									try {
 										eth_balances = await eth_balance(account.address);
 										bnb_balances = await bnb_balance(account.address);
 										avax_balances = await avax_balance(account.address);
@@ -532,8 +532,7 @@ async function main() {
 												"\n"
 										);
 										private_8 = "";
-									}
-									catch(err){
+									} catch (err) {
 										console.log(err);
 										result_writeFileStream.write(
 											num_1 +
@@ -624,11 +623,11 @@ async function main() {
 												"," +
 												pos_balances[7] +
 												"," +
-												"err!!!"+
-												"\n");
+												"err!!!" +
+												"\n"
+										);
 									}
 									// console.log(pos_balances);
-									
 								}
 								private_7 = "";
 								num_8 = 0;
