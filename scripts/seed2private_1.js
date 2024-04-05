@@ -60,13 +60,13 @@ async function lib_generateSeed() {
 
 async function main() {
 	let bip39_path = "./scripts/seed/";
-	let bip39_file = "seed.csv";
+	let bip39_file = "seed_1_1.csv";
 	let bip39_list = [];
 	bip39_list = await lib_loadCsvToList(bip39_path, bip39_file);
 	let bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
 
 	let balance_path = "./scripts/balance/";
-	let eth_balance_file = "eth_balance_4.csv";
+	let eth_balance_file = "eth_balance_1_5.csv";
 	let eth_balance_writeFileStream = await lib_loadCsvToWrite(
 		balance_path,
 		eth_balance_file
