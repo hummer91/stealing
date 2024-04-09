@@ -60,13 +60,11 @@ async function lib_generateSeed() {
 
 async function main() {
 	let bip39_path = "./scripts/seed/";
-	let bip39_file = "seed_2_1.csv";
-	let bip39_list = [];
-	bip39_list = await lib_loadCsvToList(bip39_path, bip39_file);
+	let bip39_file = "seed_2_" + process.argv[2] + ".csv";
 	let bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
 
 	let balance_path = "./scripts/balance/";
-	let eth_balance_file = "eth_balance_1_1.csv";
+	let eth_balance_file = "eth_balance_2_" + process.argv[2] + ".csv";
 	let eth_balance_writeFileStream = await lib_loadCsvToWrite(
 		balance_path,
 		eth_balance_file
@@ -78,13 +76,6 @@ async function main() {
 	// console.log(seed_ran);
 	// const seed = 'business midnight victory romance until sadness soldier knife foot raccoon coffee tonight';
 
-	// console.log(bip39_list[0][0]);
-	// console.log(bip39_list);
-	// console.log(seed);
-
-	// const arr = [1, 2];
-
-	// console.log(bip39_list.includes(seed)); // true
 	// await bip39_writeFileStream.write( seed +'\n' );
 	// await WritefileStream.write( seed +'\n' );
 
