@@ -21,8 +21,8 @@ async function lib_generateSeed() {
 }
 
 async function main() {
-	let num1 = process.argv[2]
-	let num2 = process.argv[3]
+	let num1 = process.argv[2];
+	let num2 = process.argv[3];
 	let bip39_path = "seed/";
 	// let bip39_file = "seed_" + num1 + "_" + num2 + ".csv";
 	// let bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
@@ -48,7 +48,7 @@ async function main() {
 
 	let seed_index = 0;
 	while (seed_index < 1000000) {
-		if( seed_index%10000 == 0 ){
+		if (seed_index % 10000 == 0) {
 			bip39_file = "seed_" + num1 + "_" + num2 + ".csv";
 			bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
 
@@ -59,7 +59,7 @@ async function main() {
 			);
 			num2++;
 		}
-	
+
 		let seed = await lib_generateSeed();
 		const ehdwallet = eHDWallet.fromMnemonic(seed);
 		let account_index = 0;
@@ -77,6 +77,7 @@ async function main() {
 				balance_eth = await ethweb3.eth.getBalance(pubkey);
 			} catch (err) {
 				console.log(
+					"eth/",
 					pubkey,
 					"/",
 					ehdwallet
@@ -109,7 +110,7 @@ async function main() {
 			} catch (err) {
 				console.log(
 					pubkey,
-					"/",
+					"bnb/",
 					ehdwallet
 						.derive(`m/44'/60'/0'/0/${account_index}`)
 						.getPrivateKey()
