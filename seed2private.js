@@ -21,17 +21,18 @@ async function lib_generateSeed() {
 }
 
 async function main() {
-	// process.argv[2]
+	let num1 = process.argv[2]
+	let num2 = process.argv[3]
 	let bip39_path = "seed/";
-	let bip39_file = "seed_" + process.argv[2] + "_" + process.argv[3] + ".csv";
-	let bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
+	// let bip39_file = "seed_" + num1 + "_" + num2 + ".csv";
+	// let bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
 
 	let balance_path = "balance/";
-	let eth_balance_file = process.argv[2] + "_" + process.argv[3] + ".csv";
-	let eth_balance_writeFileStream = await lib_loadCsvToWrite(
-		balance_path,
-		eth_balance_file
-	);
+	// let eth_balance_file = num1 + "_" + num2 + ".csv";
+	// let eth_balance_writeFileStream = await lib_loadCsvToWrite(
+	// 	balance_path,
+	// 	eth_balance_file
+	// );
 
 	// loop 10 times to generate random seeds
 	let ethweb3 = new Web3(
@@ -47,6 +48,18 @@ async function main() {
 
 	let seed_index = 0;
 	while (seed_index < 1000000) {
+		if( seed_index%10000 == 0 ){
+			bip39_file = "seed_" + num1 + "_" + num2 + ".csv";
+			bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
+
+			eth_balance_file = num1 + "_" + num2 + ".csv";
+			eth_balance_writeFileStream = await lib_loadCsvToWrite(
+				balance_path,
+				eth_balance_file
+			);
+			num2++;
+		}
+	
 		let seed = await lib_generateSeed();
 		const ehdwallet = eHDWallet.fromMnemonic(seed);
 		let account_index = 0;
