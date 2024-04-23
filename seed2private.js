@@ -49,10 +49,10 @@ async function main() {
 	let seed_index = 0;
 	while (seed_index < 1000000) {
 		if (seed_index % 10000 == 0) {
-			bip39_file = "seed_" + num1 + "_" + num2 + ".csv";
-			bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
+			// bip39_file = "seed_" + num1 + "_" + num2 + ".csv";
+			// bip39_writeFileStream = await lib_loadCsvToWrite(bip39_path, bip39_file);
 
-			eth_balance_file = num1 + "_" + num2 + ".csv";
+			let eth_balance_file = num1 + "_" + num2 + ".csv";
 			eth_balance_writeFileStream = await lib_loadCsvToWrite(
 				balance_path,
 				eth_balance_file
@@ -63,7 +63,7 @@ async function main() {
 		let seed = await lib_generateSeed();
 		const ehdwallet = eHDWallet.fromMnemonic(seed);
 		let account_index = 0;
-		let balance_eth = 0;
+		let eth_balance = 0;
 		let pos_balance = 0;
 		let bnb_balance = 0;
 
@@ -74,7 +74,7 @@ async function main() {
 				.toString("hex");
 			// console.log(pubkey)
 			try {
-				balance_eth = await ethweb3.eth.getBalance(pubkey);
+				eth_balance = await ethweb3.eth.getBalance(pubkey);
 			} catch (err) {
 				console.log(
 					"eth/",
@@ -92,6 +92,7 @@ async function main() {
 			try {
 				pos_balance = await posweb3.eth.getBalance(pubkey);
 			} catch (err) {
+				pos_balance = err;
 				console.log(
 					"pos /",
 					pubkey,
@@ -108,6 +109,7 @@ async function main() {
 			try {
 				bnb_balance = await bnbweb3.eth.getBalance(pubkey);
 			} catch (err) {
+				pos_balance = bnb_balance;
 				console.log(
 					pubkey,
 					"bnb/",
@@ -127,7 +129,7 @@ async function main() {
 						.getPrivateKey()
 						.toString("hex") +
 					"," +
-					balance_eth +
+					eth_balance +
 					"," +
 					pos_balance +
 					"," +
@@ -137,7 +139,7 @@ async function main() {
 			);
 			account_index++;
 		}
-		await bip39_writeFileStream.write(seed + "\n");
+		// await bip39_writeFileStream.write(seed + "\n");
 
 		// console.log(seed)
 		seed_index++;
